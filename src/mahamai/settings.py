@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Project Apps
+    'index',
+    'bootcamp',
+    # Third-Party Apps
 ]
 
 MIDDLEWARE = [
