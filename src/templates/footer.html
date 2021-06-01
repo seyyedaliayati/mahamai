@@ -23,15 +23,13 @@
               <div class="col-12 col-sm-4 navbar-dark">
                 <h5 class="mb-4 text-white">صفحات</h5>
                 <ul class="navbar-nav list-unstyled mb-0">
-                  <li class="mb-3 nav-item"><a class="nav-link" href="about-us-1.html">درباره</a>
+                  <li class="mb-3 nav-item"><a class="nav-link" href="about-us-1.html">خانه</a>
                   </li>
-                  <li class="mb-3 nav-item"><a class="nav-link" href="product-grid.html">فروشگاه</a>
+                  <li class="mb-3 nav-item"><a class="nav-link" href="product-grid.html">بوت کمپ</a>
                   </li>
-                  <li class="mb-3 nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a>
+                  <li class="mb-3 nav-item"><a class="nav-link" href="faq.html">همکاری با ما</a>
                   </li>
-                  <li class="mb-3 nav-item"><a class="nav-link" href="blog-card.html">وبلاگ</a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="contact-us.html">تماس با ما</a>
+                  <li class="mb-3 nav-item"><a class="nav-link" href="faq.html">درباره ما</a>
                   </li>
                 </ul>
               </div>
@@ -62,8 +60,8 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 col-sm-6">
-                <a class="footer-logo text-white h2 mb-0" href="index.html">
-                  بوتس<span class="font-weight-bold">لند.</span>
+                <a class="footer-logo text-white h2 mb-0" href="{% url 'index' %}">
+                  هوش مصنوعی<span class="font-weight-bold">مهام.</span>
                 </a>
               </div>
               <div class="col-12 col-sm-6 mt-6 mt-sm-0">
@@ -85,7 +83,7 @@
         </div>
         <div class="row text-white text-center mt-8">
           <div class="col">
-            <hr class="mb-8">کپی رایت - کلیه حقوق محفوظ است 1399 <u><a class="text-white" href="#">تی ان پلاگین</a></u> | همیشه در خدمت شماست</div>
+            <hr class="mb-8">کپی رایت - کلیه حقوق محفوظ است 1399 <u><a class="text-white" href="{% url 'index' %}">شرکت هوش مصنوعی مهام</a></u> | همیشه در خدمت شماست</div>
         </div>
       </div>
     </footer>
