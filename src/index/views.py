@@ -1,12 +1,8 @@
-from django.views import generic
+from index.models import ContactUs
+from django.shortcuts import render
 
 from index.forms import ContactUsForm
 
 
-class IndexView(generic.TemplateView):
-    template_name = 'index/index.html'
-
-
-class ContactUsView(generic.FormView):
-    template_name = 'index/contact_us.html'
-    form_class = ContactUsForm
+def index(request):
+    return render(request, 'index/index.html')
