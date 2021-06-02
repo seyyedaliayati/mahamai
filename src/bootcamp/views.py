@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def bootcamp_list(request):
+    return render(request, 'bootcamp/bootcamp_list.html')
+
