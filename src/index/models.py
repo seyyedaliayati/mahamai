@@ -9,6 +9,9 @@ class ContactUs(models.Model):
     def __str__(self) -> str:
         return f"{self.full_name}"
 
+    class Meta:
+        verbose_name_plural = "Contact Us Data"
+
 
 class WorkWithUs(models.Model):
     first_name = models.CharField(max_length=128)

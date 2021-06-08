@@ -543,3 +543,13 @@ Mahaam AI
 
     <!--blog end-->
 {% endblock content %}
+
+{% block js %}
+{% if thanks or error %}
+    <script>
+    setTimeout(function () {
+        location.href = "/"
+    }, 1000);
+    </script>
+{% endif %}
+{% endblock %}

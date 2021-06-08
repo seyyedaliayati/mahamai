@@ -16,6 +16,26 @@
 <header class="site-header navbar-dark">
     <div id="header-wrap" class="position-absolute w-100 z-index-1">
         <div class="container">
+            {% if thanks %}
+            <div class="row">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>از تماس با ما سپاس گزاریم.</strong>                     به زودی با شما تماس خواهیم گرفت...
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            {% endif %}
+            {% if error %}
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>متاسفیم.</strong> در ارسال اطلاعات مشکلی به وجود آماده است لطفا دوباره امتحان کنید...
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            {% endif %}
             <div class="row">
                 <!--menu start-->
                 <div class="col d-flex align-items-center justify-content-between">
@@ -30,7 +50,8 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">خانه</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'bootcamp_list' %}">بوت کمپ</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'bootcamp_list' %}">بوت کمپ</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">درباره ما</a></li>
                             </ul>
                         </div>

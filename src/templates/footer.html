@@ -14,15 +14,14 @@
                 <div class="subscribe-form bg-warning-soft p-5 rounded">
                     <h5 class="mb-4 text-white">تماس با ما</h5>
                     {% comment %} <h6 class="text-light">عضویت در خبرنامه ما</h6> {% endcomment %}
-                    <form id="mc-form" class="group">
-
+                    <form id="mc-form" class="group" method="post" action="{% url 'contact_us' %}">
+                        {% csrf_token %}
                         <input type="text" value="" name="full_name" class="form-control" id="mc-full-name"
                                placeholder="نام و نام خانوادگی" required="required" style="height: 60px;">
-                        <input type="email" value="" name="EMAIL" class="email form-control" id="mc-email"
+                        <input type="email" value="" name="email" class="email form-control" id="mc-email"
                                placeholder="آدرس ایمیل" required="required" style="height: 60px;">
-
-
-                        <textarea name="message" required="required" class="form-control" id="mc-message" cols="30" rows="10"
+                        <textarea name="message" required="required" class="form-control" id="mc-message"
+                                  rows="5"
                                   placeholder="پیام شما..."></textarea>
                         <input class="btn btn-outline-light btn-block mt-3 mb-2" type="submit" name="send"
                                value="ارسال">
