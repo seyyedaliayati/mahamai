@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms.fields import EmailField
 
 
 class ContactUs(models.Model):
@@ -14,14 +13,14 @@ class ContactUs(models.Model):
         verbose_name_plural = "Contact Us Data"
 
 
-class workwithus(models.Model):
+class WorkWithUs(models.Model):
     subject = models.CharField(max_length=20)
     first_name = models.CharField(max_length=130)
     last_name = models.CharField(max_length=130)
     email = models.EmailField()
     phone = models.CharField(max_length=30)
     message = models.TextField()
-    upload_file = models.FileField
+    resume_file = models.FileField(upload_to='work-with-us/', blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"{self.first_name} {self.last_name} {self.phone}"
+        return f"{self.first_name} {self.last_name}"

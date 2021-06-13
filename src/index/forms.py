@@ -1,7 +1,6 @@
 from django import forms
-from django.forms import fields
 
-from index.models import ContactUs, WorkWithUs
+from .models import ContactUs, WorkWithUs
 
 
 class ContactUsForm(forms.ModelForm):
