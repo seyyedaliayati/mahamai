@@ -1,8 +1,8 @@
-from index.models import ContactUs
 from django.shortcuts import render
 from django.http import HttpResponseForbidden
 
-from index.forms import ContactUsForm
+from .models import ContactUs
+from .forms import ContactUsForm
 
 
 def index(request):

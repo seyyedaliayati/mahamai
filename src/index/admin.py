@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from index.models import ContactUs, WorkWithUs
+from .models import ContactUs, WorkWithUs
 
 
 @admin.register(ContactUs)
@@ -11,6 +11,5 @@ class ContactUsAdmin(admin.ModelAdmin):
 
 @admin.register(WorkWithUs)
 class WorkWithUsAdmin(admin.ModelAdmin):
-    list_display = ['email', 'first_name', 'last_name', 'service', ]
-    list_filter = ['service', ]
-    search_fields = ['email', 'first_name', 'last_name', ]
+    list_display = ['email', 'first_name', 'last_name', 'subject', ]
+    search_fields = ['email', 'first_name', 'last_name', 'message', ]

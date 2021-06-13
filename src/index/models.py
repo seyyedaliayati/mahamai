@@ -14,13 +14,13 @@ class ContactUs(models.Model):
 
 
 class WorkWithUs(models.Model):
-    first_name = models.CharField(max_length=128)
-    last_name = models.CharField(max_length=128)
+    subject = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=130)
+    last_name = models.CharField(max_length=130)
     email = models.EmailField()
-    phone = models.CharField(max_length=12)
-    service = models.CharField(max_length=32)  # choice field
-    subject = models.CharField(max_length=128)
+    phone = models.CharField(max_length=30)
     message = models.TextField()
+    resume_file = models.FileField(upload_to='work-with-us/', blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
