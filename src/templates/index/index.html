@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-Mahaam AI
+هوش مصنوعی مهام
 {% endblock title %}
 
 
 {% block hero %}
 <!--hero section start-->
-
-    <section class="custom-pt-1 custom-pb-2 bg-primary parallaxie position-relative" style="background-image: url(assets/images/bg/01.jpg);background-position: center center; background-size: auto; background-repeat: no-repeat;" data-overlay="6">
+    <section class="custom-pt-1 custom-pb-2 bg-primary parallaxie position-relative" style="background-image: url({% static 'img/logo_big.jpg' %}); background-position: center center; background-size: auto; background-repeat: no-repeat;" data-overlay="6">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-12 col-lg-10 col-xl-8">
