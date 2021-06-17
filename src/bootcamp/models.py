@@ -1,14 +1,16 @@
 from django.db import models
+from django_jalali.db import models as jmodels
+
 
 class BootCamp(models.Model):
     title = models.CharField(max_length=40)
     description = models.TextField()
-    pictures = models.FileField(upload_to='../templates/bootcamp/bootcamp_images/' , blank=True, null=True)
-    start_date= models.DateField()
-    end_date= models.DateField()
-    presence_status = models.BooleanField(default=False)
-    not_presence_status = models.BooleanField(default=False)
-    hybrid_status = models.BooleanField(default=False)
+    main_photo = models.FileField(upload_to='bootcamp/')
+    start_date = jmodels.jDateField(blank=True, null=True)
+    end_date = jmodels.jDateField(blank=True, null=True)
+
+    is_presence = models.BooleanField(default=False)
+    is_hybrid = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return f"{self.title}"
+        return self.title

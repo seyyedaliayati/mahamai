@@ -24,3 +24,6 @@ class WorkWithUs(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        verbose_name_plural = "Work with Us Data"

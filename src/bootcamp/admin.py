@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import BootCamp
+
+
+@admin.register(BootCamp)
+class BootCampAdmin(admin.ModelAdmin):
+    pass
