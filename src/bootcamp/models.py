@@ -21,4 +21,4 @@ class BootCamp(models.Model):
         return self.title
 
     def can_enroll(self):
-        return self.start_date - datetime.now().date()
+        return self.start_date > datetime.now().date()
