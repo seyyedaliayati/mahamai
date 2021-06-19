@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Project Apps
-    'index',
-    'bootcamp',
+    'index.apps.IndexConfig',
+    'bootcamp.apps.BootcampConfig',
     # Third-Party Apps
 ]
 

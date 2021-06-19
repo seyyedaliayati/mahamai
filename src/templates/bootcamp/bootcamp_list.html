@@ -1,16 +1,81 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load persian_tools %}
 
 {% block title %}
-بوت کمپ ها
+    بوت کمپ ها
 {% endblock %}
 
 {% block hero %}
+    <section class="position-relative">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row  text-center">
+                <div class="col">
+                    <h1>بوت کمپ ها</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+                            <li class="breadcrumb-item"><a class="text-dark" href="{% url 'index' %}">خانه</a>
+                            </li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">بوت کمپ</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
 
 {% endblock %}
 
 {% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 order-lg-12">
+                    {% for bootcamp in bootcamp_list %}
+                        <div class="product-item product-list mb-5">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 col-md-5">
+                                    <div class="product-img">
+                                        <img class="img-fluid" src="{{ bootcamp.main_photo.url }}"
+                                             alt="{{ bootcamp.title }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-7">
+                                    <div class="product-desc"><a href="product-single.html"
+                                                                 class="product-name mt-4 mb-2 d-block link-title">
+                                        {{ bootcamp.title }}
+                                    </a>
+                                        <span class="product-price">
+{#                                            <del class="text-muted">4600 تومان</del>#}
+                                            {{ bootcamp.price }} تومان
+                                        </span>
+                                        <p class="mb-0 mt-2">
+                                            <b>شروع: </b>{{ bootcamp.start_date | farsi_date }}
+                                            <b>پایان: </b>{{ bootcamp.end_date | farsi_date }}
+                                        </p>
 
+                                        <p class="mb-0 mt-2">
+                                            {{ bootcamp.description | safe }}
+                                        </p>
+                                        <div class="product-link mt-3">
+                                            <a class="add-cart btn btn-success" href="#"> <i class="ti-info-alt ml-2"></i>
+                                                نمایش جزییات بیشتر
+                                            </a>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block js %}
