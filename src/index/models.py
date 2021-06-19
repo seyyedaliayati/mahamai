@@ -12,6 +12,9 @@ class ContactUs(models.Model):
     class Meta:
         verbose_name_plural = "Contact Us Data"
 
+    def get_ull_name(self):
+        return self.full_name
+
 
 class WorkWithUs(models.Model):
     subject = models.CharField(max_length=20)
@@ -27,3 +30,6 @@ class WorkWithUs(models.Model):
 
     class Meta:
         verbose_name_plural = "Work with Us Data"
+
+    def get_ull_name(self):
+        return f"{self.first_name} {self.last_name}"
