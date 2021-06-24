@@ -3,7 +3,6 @@ from django.urls import reverse
 
 from .selectors import get_all_bootcamps
 
-
 # -*- coding: utf-8 -*-
 # Github.com/Rasooll
 from django.http import HttpResponse
@@ -27,6 +26,7 @@ def send_request(request):
     else:
         return HttpResponse('Error code: ' + str(result.Status))
 
+
 def verify(request):
     if request.GET.get('Status') == 'OK':
         result = client.service.PaymentVerification(MERCHANT, request.GET['Authority'], amount)
@@ -40,10 +40,10 @@ def verify(request):
     else:
         return HttpResponse('Transaction failed or canceled by user')
 
+
 def bootcamp_list(request):
     bootcamps = get_all_bootcamps()
     context = {
         'bootcamp_list': bootcamps,
     }
     return render(request, 'bootcamp/bootcamp_list.html', context=context)
-
