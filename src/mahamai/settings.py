@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z==3tgdo&gj-&2oz+jfwk5t2=3t%2k#z&f##gq0oh^13e#uzxr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.125', '127.0.0.1', 'localhost', ]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'bootcamp.apps.BootcampConfig',
     # Third-Party Apps
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
