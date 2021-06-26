@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.urls import reverse
 
+from .forms import BootCampRegisterForm
 from .selectors import get_all_bootcamps, get_bootcamp_by_pk
+from .utils import make_payment
 
 # -*- coding: utf-8 -*-
 # Github.com/Rasooll
@@ -9,14 +11,10 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from zeep import Client
 
-MERCHANT = 'ee262516-f313-4e1d-bad0-a12e0d1f03c5'
-amount = 1000  # Toman / Required
-description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"  # Required
-email = 'ghaem.saadatjo@gmail.com'  # Optional
-mobile = '09123456789'  # Optional
 
-# client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
-# CallbackURL = 'http://localhost:8001/bootcamp/verify'  # Important: need to edit for realy server.
+
+client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
+CallbackURL = 'http://localhost:8001/bootcamp/verify'  # Important: need to edit for realy server.
 
 
 def send_request(request):
@@ -55,3 +53,22 @@ def bootcamp_detail(request, pk):
         'bootcamp': bootcamp,
     }
     return render(request, 'bootcamp/bootcamp_detail.html', context=context)
+
+
+def bootcamp_register(request, pk):
+    bootcamp = get_bootcamp_by_pk(pk)
+    context = {
+        'bootcamp': bootcamp,
+    }
+    if request.method == "POST":
+        form = BootCampRegisterForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.bootcamp = bootcamp
+            obj.save()
+            return make_payment(obj)
+        else:
+            print("Errors")
+
+    return render(request, 'bootcamp/bootcamp_register.html', context=context)
+

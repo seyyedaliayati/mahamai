@@ -61,10 +61,13 @@
                                             {{ bootcamp.description | safe }}
                                         </p>
                                         <div class="product-link mt-3">
-                                            <a class="add-cart btn btn-success" href="{{ bootcamp.get_absolute_url }}"> <i class="ti-info-alt ml-2"></i>
+                                            <a class="add-cart btn btn-success" href="{{ bootcamp.get_absolute_url }}">
+                                                <i class="ti-info-alt ml-2"></i>
                                                 نمایش جزییات بیشتر
                                             </a>
-
+                                            <a class="add-cart btn btn-primary" href="{{ bootcamp.get_register_url }}">
+                                                <i class="ti-user ml-2"></i>
+                                                ثبت نام
                                             </a>
                                         </div>
                                     </div>

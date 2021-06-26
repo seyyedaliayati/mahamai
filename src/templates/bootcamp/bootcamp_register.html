@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    ثبت نام در بوت کمپ
+{% endblock title %}
+
+
+{% block hero %}
+    <section class="position-relative">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row  text-center">
+                <div class="col">
+                    <h1>ثبت نام در {{ bootcamp }}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+                            <li class="breadcrumb-item"><a class="text-dark" href="{% url 'index' %}">خانه</a>
+                            </li>
+                            <li class="breadcrumb-item"><a class="text-dark" href="{% url 'bootcamp_list' %}">بوت
+                                کمپ</a>
+                            </li>
+                            <li class="breadcrumb-item"><a class="text-dark"
+                                                           href="{% url 'bootcamp_detail' pk=bootcamp.pk %}">{{ bootcamp }}</a>
+                            </li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">ثبت نام</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
+{% endblock hero %}
+
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row justify-content-center mb-5 text-center">
+                <div class="col-12 col-lg-8">
+                    <div> <span class="badge badge-primary-soft p-2">
+                  <i class="la la-bold ic-3x rotation"></i>
+              </span>
+                        <h2 class="mt-4 mb-0">فرم ثبت نام</h2>
+                        <p class="lead mb-0">
+                            لطفا اطلاعات خود را با دقت وارد کنید و سپس وارد درگاه پرداخت شوید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-lg-10">
+                    <form id="contact-form" class="row" method="post">
+                        {% csrf_token %}
+                        <div class="messages"></div>
+                        <div class="form-group col-md-6">
+                            <input id="id_first_name" type="text" name="first_name" class="form-control"
+                                   placeholder="نام" required="required" data-error="فیلد نام ضروری است">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input id="id_last_name" type="text" name="last_name" class="form-control"
+                                   placeholder="نام خانوادگی" required="required"
+                                   data-error="فیلد نام خانوادگی ضروری است">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input id="id_email" type="email" name="email" class="form-control" placeholder="ایمیل"
+                                   required="required" data-error="فیلد ایمیل ضروری است">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input id="id_phone" type="tel" name="phone" class="form-control" placeholder="تلفن"
+                                   required="required" data-error="فیلد تلفن ضروری است">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="id_want_virtual" name="want_virtual">
+                                <label class="custom-control-label" for="id_want_virtual">
+                                    تمایل دارم به صورت مجازی در کلاس ها شرکت کنم.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center mt-4">
+                            <button type="submit" class="btn btn-success"><span>
+                                ثبت نام
+                            </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/header-light.js' %}"></script>
+{% endblock %}

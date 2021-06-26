@@ -26,3 +26,24 @@ class BootCamp(models.Model):
 
     def get_absolute_url(self):
         return reverse('bootcamp_detail', kwargs={'pk': self.pk})
+
+    def get_register_url(self):
+        return reverse('bootcamp_register', kwargs={'pk': self.pk})
+
+
+class BootCampRegister(models.Model):
+    bootcamp = models.ForeignKey(BootCamp, on_delete=models.PROTECT)
+    first_name = models.CharField(max_length=130)
+    last_name = models.CharField(max_length=130)
+    email = models.EmailField()
+    phone = models.CharField(max_length=30)
+    want_virtual = models.BooleanField(default=False)
+
+    completed_payment = models.BooleanField(default=False)
+    date_created = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-date_created', )
+
+    def __str__(self):
+        return f"{self.bootcamp} - {self.phone}"
