@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 
-from .selectors import get_all_bootcamps
+from .selectors import get_all_bootcamps, get_bootcamp_by_pk
 
 # -*- coding: utf-8 -*-
 # Github.com/Rasooll
@@ -15,8 +15,8 @@ description = "توضیحات مربوط به تراکنش را در این قس
 email = 'ghaem.saadatjo@gmail.com'  # Optional
 mobile = '09123456789'  # Optional
 
-client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
-CallbackURL = 'http://localhost:8001/bootcamp/verify'  # Important: need to edit for realy server.
+# client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
+# CallbackURL = 'http://localhost:8001/bootcamp/verify'  # Important: need to edit for realy server.
 
 
 def send_request(request):
@@ -47,3 +47,11 @@ def bootcamp_list(request):
         'bootcamp_list': bootcamps,
     }
     return render(request, 'bootcamp/bootcamp_list.html', context=context)
+
+
+def bootcamp_detail(request, pk):
+    bootcamp = get_bootcamp_by_pk(pk)
+    context = {
+        'bootcamp': bootcamp,
+    }
+    return render(request, 'bootcamp/bootcamp_detail.html', context=context)

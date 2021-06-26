@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from django.urls import reverse
 
 
 class BootCamp(models.Model):
@@ -22,3 +23,6 @@ class BootCamp(models.Model):
 
     def can_enroll(self):
         return self.start_date > datetime.now().date()
+
+    def get_absolute_url(self):
+        return reverse('bootcamp_detail', kwargs={'pk': self.pk})
