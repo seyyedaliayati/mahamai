@@ -38,7 +38,7 @@ class BootCampRegister(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=30)
     want_virtual = models.BooleanField(default=False)
-
+    payment_ref_id = models.CharField(default="No Ref ID", max_length=128)
     completed_payment = models.BooleanField(default=False)
     date_created = models.DateField(auto_now_add=True)
 
@@ -47,3 +47,6 @@ class BootCampRegister(models.Model):
 
     def __str__(self):
         return f"{self.bootcamp} - {self.phone}"
+
+    def get_callback_url(self):
+        return reverse('bootcamp_register_verify', kwargs={'pk': self.pk})

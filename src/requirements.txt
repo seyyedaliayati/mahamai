@@ -5,3 +5,4 @@ sqlparse==0.4.1
 jdatetime==3.6.2
 python-decouple==3.4
 django-debug-toolbar==3.2.1
+zeep==4.0.0

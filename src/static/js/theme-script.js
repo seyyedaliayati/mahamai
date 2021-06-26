@@ -334,10 +334,10 @@ function rangeslider() {
       max: 500,
       values: [ 0, 300 ],
       slide: function( event, ui ) {
-        $( "#amount" ).val( "تومان" + ui.values[ 0 ] + " - تومان" + ui.values[ 1 ] );
+        $( "#AMOUNT" ).val( "تومان" + ui.values[ 0 ] + " - تومان" + ui.values[ 1 ] );
       }
     });
-    $( "#amount" ).val( "تومان" + $( "#slider-range" ).slider( "values", 0 ) +
+    $( "#AMOUNT" ).val( "تومان" + $( "#slider-range" ).slider( "values", 0 ) +
       " - تومان" + $( "#slider-range" ).slider( "values", 1 ) );
 };
 

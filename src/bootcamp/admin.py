@@ -10,4 +10,6 @@ class BootCampAdmin(admin.ModelAdmin):
 
 @admin.register(BootCampRegister)
 class BootCampRegisterAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['bootcamp', 'phone', 'completed_payment']
+    list_filter = ['bootcamp', 'completed_payment']
+    search_fields = ['first_name', 'last_name', 'email', 'phone']
