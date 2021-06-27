@@ -556,7 +556,7 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
         // backspacing speed
         this.backSpeed = this.options.backSpeed;
 
-        // amount of time to wait before backspacing
+        // AMOUNT of time to wait before backspacing
         this.backDelay = this.options.backDelay;
 
         // input strings of text

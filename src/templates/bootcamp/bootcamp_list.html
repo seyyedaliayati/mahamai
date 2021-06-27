@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-7">
-                                    <div class="product-desc"><a href="product-single.html"
+                                    <div class="product-desc"><a href="{{ bootcamp.get_absolute_url }}"
                                                                  class="product-name mt-4 mb-2 d-block link-title">
                                         {{ bootcamp.title }}
                                     </a>
@@ -57,15 +57,21 @@
                                             <b>پایان: </b>{{ bootcamp.end_date | farsi_date }}
                                         </p>
 
-                                        <p class="mb-0 mt-2">
+                                        <p class="mb-0 mt-2 text-dark text-justify">
                                             {{ bootcamp.description | safe }}
                                         </p>
                                         <div class="product-link mt-3">
-                                            <a class="add-cart btn btn-success" href="#"> <i class="ti-info-alt ml-2"></i>
+                                            <a class="add-cart btn btn-success" href="{{ bootcamp.get_absolute_url }}">
+                                                <i class="ti-info-alt ml-2"></i>
                                                 نمایش جزییات بیشتر
                                             </a>
-
-                                            </a>
+                                            {% if bootcamp.can_enroll %}
+                                                <a class="add-cart btn btn-primary"
+                                                   href="{{ bootcamp.get_register_url }}">
+                                                    <i class="ti-user ml-2"></i>
+                                                    ثبت نام
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
