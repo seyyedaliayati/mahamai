@@ -1,6 +1,6 @@
 from zeep import Client
 
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 MERCHANT_ID = 'ee262516-f313-4e1d-bad0-a12e0d1f03c5'
@@ -23,9 +23,15 @@ def verify_payment(request, register):
     client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
     result = client.service.PaymentVerification(MERCHANT_ID, request.GET['Authority'], register.bootcamp.price)
     if result.Status == 100:
-        return HttpResponse('Transaction success.\nRefID: ' + str(result.RefID))
-        # return render(request, 'index/thanks.html', context={'message': 'از خرید شما سپاس گزاریم!'})
+        register.completed_payment = True
+        register.payment_ref_id = str(result.RefID)
+        register.save()
+        return render(request, 'index/thanks.html', context={'message': 'از خرید شما سپاس گزاریم! کد رهگیری: {}'.format(result.RefID)})
     elif result.Status == 101:
-        return HttpResponse('Transaction submitted : ' + str(result.Status))
+        register.completed_payment = True
+        register.save()
+        return render(request, 'index/thanks.html', context={'message': 'از خرید شما سپاس گزاریم!'})
     else:
+        register.completed_payment = False
+        register.save()
         return HttpResponse('Transaction failed.\nStatus: ' + str(result.Status))

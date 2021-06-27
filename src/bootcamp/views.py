@@ -1,7 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import BootCampRegisterForm
+from .models import BootCampRegister
 from .selectors import get_all_bootcamps, get_bootcamp_by_pk, get_bootcamp_register_by_pk
 from .utils import make_payment, verify_payment
 
@@ -30,9 +30,7 @@ def bootcamp_register(request, pk):
     if request.method == "POST":
         form = BootCampRegisterForm(request.POST)
         if form.is_valid():
-            obj = form.save(commit=False)
-            obj.bootcamp = bootcamp
-            obj.save()
+            obj, created = BootCampRegister.objects.get_or_create(**form.cleaned_data, bootcamp=bootcamp)
             return make_payment(request, obj)
         else:
             print("Errors")
@@ -45,4 +43,4 @@ def bootcamp_register_verify(request, pk):
     if request.GET.get('Status') == 'OK':
         return verify_payment(request, register)
     else:
-        return HttpResponse('Transaction failed or canceled by user')
+        return redirect(register.bootcamp.get_register_url())
