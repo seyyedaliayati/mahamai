@@ -1,0 +1,14 @@
+{
+  "platform": "django",
+  "app": "mahamai",
+  "disks": [
+    {
+      "name": "media",
+      "mountTo": "media"
+    },
+    {
+      "name": "database",
+      "mountTo": "database"
+    }
+  ]
+}
