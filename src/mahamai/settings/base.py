@@ -114,4 +114,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email Settings
-EMAIL_ADMINS = ["seyyedaliayati@gmail.com", ]
+EMAIL_ADMINS = ["seyyedaliayati@gmail.com", "ghaem.saadatjo@gmail.com"]

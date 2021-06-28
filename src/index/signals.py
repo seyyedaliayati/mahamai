@@ -11,7 +11,7 @@ def inform_admin(model_name, instance_id):
         subject=f'New {model_name}',
         message=f'A new {model_name.lower()} instance submitted with id: {instance_id}',
         from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[settings.EMAIL_ADMIN, ],
+        recipient_list=settings.EMAIL_ADMINS,
         fail_silently=True,
     )
 
@@ -38,5 +38,5 @@ def inform_via_email(sender, instance, created, **kwargs):
 @receiver(post_save, sender=WorkWithUs)
 def inform_via_email(sender, instance, created, **kwargs):
     if created:
-        inform_admin("Contact Us", instance.id)
+        inform_admin("Work with Us", instance.id)
         inform_client(instance)

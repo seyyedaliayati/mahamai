@@ -1,3 +1,4 @@
+{% load static %}
 <!--footer start-->
 
 <footer class="py-11 bg-primary position-relative" data-bg-img="assets/images/bg/03.png">
@@ -47,6 +48,9 @@
                             <li class="mb-3 nav-item"><a class="nav-link" href="{% url 'about_us' %}">درباره ما</a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="col-12 col-sm-8 navbar-dark">
+                        <img src="{% static 'img/logo_transparent.png' %}" alt="Maham Logo" width="100%">
                     </div>
                 </div>
                 <!-- Social Media and Title -->
