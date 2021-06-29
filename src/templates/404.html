@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
-    <section class="fullscreen-banner p-0">
+    <section class="my-8">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12 text-center h-100 d-flex align-items-center">
-                    <div class="w-100"><img class="img-fluid d-inline mb-5" src="{% static 'images/404.png' %}" alt="error-404">
+                    <div class="w-100"><img class="img-fluid d-inline mb-5" src="{% static 'images/404.png' %}"
+                                            alt="error-404">
                         <h2>وای! انگار مشکلی هست</h2>
                         <div class="col-lg-6 col-md-10 ml-auto mr-auto">
                             <h6>این صفحه ای که شما دنبالش اومدید یا وجود نداشت، و یا حذف شده. لظفا بروید صفحه اصلی</h6>
@@ -17,4 +18,8 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/header-light.js' %}"></script>
 {% endblock %}
