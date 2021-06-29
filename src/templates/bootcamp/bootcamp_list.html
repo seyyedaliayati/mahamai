@@ -58,7 +58,7 @@
                                         </p>
 
                                         <p class="mb-0 mt-2 text-dark text-justify">
-                                            {{ bootcamp.description | safe }}
+                                            {{ bootcamp.description | safe | truncatewords:10 }}
                                         </p>
                                         <div class="product-link mt-3">
                                             <a class="add-cart btn btn-success" href="{{ bootcamp.get_absolute_url }}">

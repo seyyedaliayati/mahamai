@@ -1,1 +1,69 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ bootcamp }}
+{% endblock %}
+
+{% block hero %}
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center">
+      <div class="col">
+        <h1>{{ bootcamp }}</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+            <li class="breadcrumb-item"><a class="text-dark" href="{% url 'index' %}">خانه</a>
+            </li>
+            <li class="breadcrumb-item"><a class="text-dark" href="{% url 'bootcamp_list' %}">بوت کمپ</a></li>
+            <li class="breadcrumb-item active text-primary" aria-current="page">{{ bootcamp }}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+{% endblock %}
+
+{% block content %}
+<!--tab start-->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tab">
+          <!-- Nav tabs -->
+          <nav>
+            <div class="nav nav-tabs border-0" id="nav-tab" role="tablist"> <a class="nav-item nav-link active ml-0" id="nav-tab1" data-toggle="tab" href="#tab3-1" role="tab" aria-selected="true">توضیحات</a>
+            </div>
+          </nav>
+          <!-- Tab panes -->
+          <div class="tab-content pt-5">
+            <div role="tabpanel" class="tab-pane fade show active" id="tab3-1">
+              <p class="mb-0 text-justify">
+                  {{ bootcamp.description }}
+              </p>
+
+                {% if bootcamp.can_enroll %}
+                    <a href="{{ bootcamp.get_register_url }}" class="btn btn-outline-success mt-3">
+                    همین الان ثبت نام کنید!
+                    </a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--tab end-->
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/header-light.js' %}"></script>
+{% endblock %}

@@ -1,10 +1,8 @@
-import os
-
 from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['mahamai.ir', ]
+ALLOWED_HOSTS = ['mahamai.ir', 'mahamai.iran.liara.run', ]
 
 DATABASES = {
     'default': {
